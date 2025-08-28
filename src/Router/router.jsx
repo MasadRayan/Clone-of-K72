@@ -14,11 +14,11 @@ const router = createBrowserRouter([
                 Component: Home
             },
             {
-                path: '/agence',
+                path: 'agence',
                 Component: Agence
             },
             {
-                path: '/projects',
+                path: 'projects',
                 Component: Projects
             }
         ]
