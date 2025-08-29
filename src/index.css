@@ -4,14 +4,49 @@
   font-family: font1;
   src: url(../public/Fonts/Lausanne-300.woff2);
 }
+
 @font-face {
   font-family: font2;
   src: url(../public/Fonts/Lausanne-500.woff2);
 }
 
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* prevent horizontal scroll */
+  overflow-x: hidden;
+  /* prevent horizontal scroll */
+}
+
+.movelink {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.link:hover .movelink {
+  opacity: 1;
+  transition:  0.5s all ease-in-out;
+}
+
+.moveX {
+  display: inline-flex;
+  gap: 2rem;
+  animation: moveX 8s linear infinite;
+}
+
+@keyframes moveX {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+    /* only move half, because we duplicate */
+  }
 }
