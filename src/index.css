@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@plugin "daisyui";
 
 @font-face {
   font-family: font1;
@@ -10,11 +9,6 @@
   src: url(../public/Fonts/Lausanne-500.woff2);
 }
 
-
-body {
-  background-color: #111;
-  color: white;
-}
 
 html, body {
   margin: 0;
