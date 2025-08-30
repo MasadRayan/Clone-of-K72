@@ -1,9 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { FaBars } from "react-icons/fa";
+import { NavBarContext } from '../../Context/NavContext';
 
 const Navbar = () => {
 
     const navGreenRef = useRef(null);
+    const [navOpen, setNavOpen] = useContext(NavBarContext);
 
     return (
         <div className='flex justify-between items-start fixed z-4 top-0 w-full mb-20'>
@@ -14,19 +16,19 @@ const Navbar = () => {
                     </svg>
                 </div>
             </div>
-            <div onMouseEnter={() => {
-                navGreenRef.current.style.height = '100%'
-            }}
-            onMouseLeave={() => {
-                navGreenRef.current.style.height = '0%'
-            }}
-            >
-                <div className='h-[6vw] md:h-14 w-[30vw] md:w-[16vw]  relative bg-black'>
-                    <div className='z-10 absolute left-45 md:left-50 md:top-3.5 top-3 h-full w-full'>
-                        <FaBars className='text-white' size={24} />
-                    </div>
-                    <div ref={navGreenRef} className='bg-[#D3FD50] h-0 w-full top-0 transition-all absolute'></div>
-                    
+            <div
+                onClick={() => setNavOpen(true)}
+                onMouseEnter={() => {
+                    navGreenRef.current.style.height = '100%'
+                }}
+                onMouseLeave={() => {
+                    navGreenRef.current.style.height = '0%'
+                }}
+                className='lg:h-16 h-10 bg-black relative lg:w-[16vw] w-48'>
+                <div ref={navGreenRef} className='bg-[#D3FD50] transition-all  absolute top-0 h-0 w-full'></div>
+                <div className='relative h-full lg:px-12 px-8 flex flex-col justify-center items-end lg:gap-1.5 gap-0.5'>
+                    <div className="lg:w-18 w-12 h-0.5 bg-white"></div>
+                    <div className="lg:w-10 w-6 h-0.5 bg-white"></div>
                 </div>
             </div>
         </div>

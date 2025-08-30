@@ -4,13 +4,16 @@ import './index.css';
 import { BrowserRouter } from 'react-router';
 import App from './App';
 import Loading from './Components/Common/Loading';
+import NavContext from './Context/NavContext';
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Loading>
-        <App></App>
+        <NavContext>
+          <App></App>
+        </NavContext>
       </Loading>
     </BrowserRouter>
   </StrictMode>
